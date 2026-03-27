@@ -108,6 +108,16 @@ body {
     margin-bottom: 0;
 }
 
+.box-body ul {
+    margin: 8px 0 8px 20px;
+    padding-left: 0;
+    list-style: square;
+}
+
+.box-body li {
+    margin-bottom: 4px;
+}
+
 a,
 a:visited {
     color: #a48fff;
@@ -127,9 +137,37 @@ a:hover {
     overflow: hidden;
 }
 
-marquee {
+#marquee-bar .marquee {
+    overflow: hidden;
+    position: relative;
+}
+
+#marquee-bar .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
     color: #7a6bcc;
     font-size: 11px;
+    animation: marquee-scroll 18s linear infinite;
+    will-change: transform;
+}
+
+#marquee-bar .marquee-track span {
+    display: inline-block;
+    padding-right: 48px;
+}
+
+#marquee-bar:hover .marquee-track,
+#marquee-bar .marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 hr {
